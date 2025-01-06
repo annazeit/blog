@@ -24,6 +24,6 @@ fn setup(mut commands: Commands) {
 
 - Then we create a new bevy application using `App::new()` and add the default plugins. After that, we add the setup system so it can run the startup stage of the application.
 
-- We then spawn the camera in the setup function.
+- We then spawn the camera in the `setup()` function.
 
-After putting in the code and using `cargo run` to run the program, you should hopefully see an empty window appear. That is the camera view. 
+After putting in the code and running the program, you should see an empty window appear. That is the camera view. 

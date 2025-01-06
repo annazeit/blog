@@ -22,4 +22,4 @@ fn draw_circle(mut gizmos: Gizmos,) {
 }
 ```
 
-- We add the draw_circle function to be run during the update stage. And draw a simple circle using gizmos. Our circle can then potentially become the player.
+- We add the `draw_circle()` function to be run during the update stage. And draw a simple circle using `gizmos`. Our circle can then potentially become the player.

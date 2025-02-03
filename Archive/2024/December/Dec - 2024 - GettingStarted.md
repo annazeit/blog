@@ -21,8 +21,6 @@
   - Find the extention and click install.
   - This extention contains useful features including the ability to run you code without the use of a terminal. You will find two small buttons usually above your `main()` function that san be used to run and debug the code.
 
-  ![alt text](image.png)
-
 ## Step 2: Install Bevy
 
 1. **Create a new Rust project**:

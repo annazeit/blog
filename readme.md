@@ -2,6 +2,7 @@
 
 This is a simple blog project hosted on GitHub Pages. It serves as a personal space to share thoughts, ideas, and updates.
 
+[Link player controls articles](./Archive/2024/June/PlayerControls.md)
 ## Project Structure
 
 ```

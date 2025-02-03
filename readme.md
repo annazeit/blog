@@ -1,25 +1,9 @@
-# My Blog
+# Welcome to My Blog!
 
-This is a simple blog project hosted on GitHub Pages. It serves as a personal space to share thoughts, ideas, and updates.
+Hello! I'm Anna, and this is my corner of the internet where I share insights on Rust and the Bevy game engine.
 
-## Project Structure
+## About This Blog
+I'm just starting to learn Rust and Bevy, and I'm excited to share my journey with you. Here, I'll document my experiences as I dive into coding with Rust and explore game development using Bevy. I'm exploring the Rust's crate ecosystem as well as looking into Bevy's Entity Component System (ECS).Whether you're also learning or just curious about these technologies, I hope you'll find my posts interesting and maybe even pick up something new along the way! 
 
-```
+---
 
-```
-
-## Getting Started
-
-To get a local copy up and running, follow these simple steps:
-
-1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/my-blog.git
-   ```
-
-2. Navigate to the project directory:
-   ```
-   cd my-blog
-   ```
-
-3. Open `index.html` in your web browser to view the blog.

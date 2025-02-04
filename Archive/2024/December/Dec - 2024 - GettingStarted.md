@@ -15,11 +15,11 @@
      ```
    - You should see the installed version of Rust.
 
-  3. **Install the Rust Analyzer Extention**
-  - Open the extentions view.
+  3. **Install the Rust Analyzer Extension**
+  - Open the extensions view.
   - Search for rust analyzer
-  - Find the extention and click install.
-  - This extention contains useful features including the ability to run you code without the use of a terminal. You will find two small buttons usually above your `main()` function that san be used to run and debug the code.
+  - Find the extension and click install.
+  - This extension contains useful features including the ability to run you code without the use of a terminal. You will find two small buttons usually above your `main()` function that san be used to run and debug the code.
 
 ## Step 2: Install Bevy
 

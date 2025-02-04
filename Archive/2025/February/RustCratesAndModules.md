@@ -1,0 +1,195 @@
+# Rust Crates and Modules
+
+There is often a lot of confusion regarding crates and modules, especially when it comes to submodules and referencing between them. This article is based on my understanding of this unique structure and how it works. Hopefully this makes sense in your head as well:)
+
+Before we get into the other stuff, it's important to understand some basic definitions. All these definitions are interconnected so I advise rereading about them and trying to understand their relations.
+
+## Package
+
+A package is a collection of one or more crates. It can have multiple crates but requires at least one (either library or binary). There can be multiple binary crates but only one library crate in a package. Every package has a Cargo.toml file to manage dependencies and configurations for its crates.
+
+## Crate 
+
+A crate is the smallest amount of code that the Rust compiler considers at a time. I like to think of it as one single project. A crate can either be binary or library. 
+
+Whats the difference?
+
+### Library Crate: 
+
+Like a toolbox. It has useful code that you can use in other projects. It's great for building utilities, helper functions, or modules that can be imported by multiple applications. A library crate doesn't contain a `main()` function. Hence, it doesn't run by itself. 
+
+### Binary Crate: 
+
+Like an app. It's a program that you can run. Each binary crate must have a `main()` function where the program starts. A binary crate doesn't always have to be one single file, it can be multiple files, as long as there is only one `main()` function which is inside the crate root. A crate root is the main file where the code is run from, it contains the `main()` function. The crate root is a module by itself but it cannot contain any submodules. It always has to be named `main.rs`.
+ 
+## Module:
+A module is one file. It's a way of organizing your code into smaller, manageable parts. Modules help to structure code and make it easier to understand and maintain. As I already said before, the binary crate root is a module as well. 
+
+If there are more than one module in a crate, all the other modules need to be brought into scope. This is done by referencing them in the crate root. 
+
+Modules can also contain submodules and those submodules can contain other submodules as well and so on. Modules with submodules are folders. This creates a hierarchical structure of modules and submodules. This is called a module tree. It is important to know how to reference modules from different hierarchial positions.
+
+## Example
+
+Take a look at the `modules_example` which you can also find in my bevy_blog_code repository on GitHub. Here is the link to my Rust example: https://github.com/annazeit/bevy_blog_code/tree/main/modules_example. 
+
+I know that this example might seem complex but in reality it is very simple. There is just a lot of folders and files to showcase the idea of how different modules can be referenced from one another, although all of them contain little to no code. This example does not contain any logic and is purely module declarations and references.
+
+The hierarchial structure is as follows:
+
+``` 
+hierarchical_example/
+    ├── Cargo.toml
+    ├── src/
+        ├── main.rs
+        ├── module_a.rs
+        ├── module_b/
+        │   ├── mod.rs
+        │   ├── submodule_b1.rs
+        │   ├── submodule_b2.rs
+        ├── module_c/
+        │   ├── mod.rs
+        │   ├── submodule_c1/
+        │   │   ├── mod.rs
+        │   │   ├── sub_submodule_c1_1.rs
+```
+
+We can see that `hierarchial_example` is a package, while `main.rs` along with all the other modules is a crate. Notice that a crate doesn't have to be a folder with modules inside. In fact it usually isn't. It is just a collection of modules that the Rust compiler sees as one big chunk of code. 
+
+There are about three layers of modules. Some modules are files and some modules are folders as they contain submodules inside and so on.
+
+You have probably noticed that every module with submodules contains a `mod.rs` file. `mod.rs` files are used to declare submodules and organize the module's code, allowing Rust to recognize and include the submodule's code. This structure maintains a clear and manageable hierarchy within the project, especially for larger projects with more submodules.
+
+Inside mod.rs files, we typically declare the submodules of a parent module. You can look into any of the `mod.rs` files to see the declarations. `mod.rs` itself is a module file. It's a special file used to declare and organize submodules within a parent module.
+
+Now that we had a look at all the modules and their structure, lets see what is inside all of these files and how the modules reference each other.
+
+--- 
+`main.rs`
+
+```rust
+mod module_a;
+mod module_b;
+mod module_c;
+
+fn main() {
+    module_a::some_function_a();
+    module_b::submodule_b1::some_function_b1();
+    module_b::submodule_b2::some_function_b2();
+}
+```
+
+The `main.rs` file declares the modules module_a, module_b, and module_c. It then calls a few functions from these modules and their submodules by specifying first their parent and grandparent module if they have one. I don't think that the term "grandparent module" is an actual thing but it's very helpful in describing hierarchical relationships between modules and submodules.
+
+ ---
+`module_a.rs`
+
+```rust
+pub fn some_function_a() {
+    println!("Function in module_a");
+}
+```
+
+The `module_a.rs` file defines a public function some_function_a() that prints a message. Very simple.
+
+--- 
+`module_b/mod.rs`
+
+```rust
+pub mod submodule_b1;
+pub mod submodule_b2;
+```
+
+The module_b/mod.rs file declares the submodules submodule_b1 and submodule_b2 using the mod keyword.
+
+--- 
+`module_b/submodule_b1.rs`
+
+```rust
+use crate::module_c::submodule_c1;
+
+pub fn some_function_b1() {
+    println!("Function in submodule_b1");
+    submodule_c1::sub_submodule_c1_1::some_function_c1_1();
+}
+```
+The `submodule_b1.rs` file imports a function from sub_submodule_c1_1 from a different module tree. It then defines a public function some_function_b1() that prints a message, and calls the imported function.
+
+---
+`module_b/submodule_b2.rs`
+
+```rust
+pub fn some_function_b2() {
+    println!("Function in submodule_b2");
+}
+```
+
+The `submodule_b2.rs` file defines a public function some_function_b2() that prints a message.
+
+---
+`module_c/mod.rs`
+
+```rust
+pub mod submodule_c1;
+```
+
+The `module_c/mod.rs` file declares the submodule submodule_c1.
+
+---
+`module_c/submodule_c1/mod.rs`
+
+```rust
+pub mod sub_submodule_c1_1;
+```
+
+The `submodule_c1/mod.rs` file declares the sub_submodule_c1_1.
+
+---
+`module_c/submodule_c1/sub_submodule_c1_1.rs`
+
+```rust
+pub fn some_function_c1_1() {
+    println!("Function in sub_submodule_c1_1");
+}
+```
+
+The `sub_submodule_c1_1.rs` file defines a public function some_function_c1_1() that prints a message.
+
+---
+This is all very repetitive, but notice that every module, submodule and so on is referencing another one or is getting referenced itself.
+
+Lets look at the output of this web.
+
+```
+$ cargo run
+
+Function in module_a
+Function in submodule_b1
+Function in sub_submodule_c1_1
+Function in submodule_b2
+```
+
+Explanation of Output:
+
+`module_a::some_function_a()`:
+- Prints "Function in module_a".
+
+`module_b::submodule_b1::some_function_b1()`:
+- Prints "Function in submodule_b1".
+- Calls submodule_c1::sub_submodule_c1_1::some_function_c1_1() which prints "Function in sub_submodule_c1_1".
+
+`module_b::submodule_b2::some_function_b2()`:
+- Prints "Function in submodule_b2".
+
+This example demonstrates the hierarchy and interaction between various modules and submodules, showing how functions are called and the resulting output.
+
+
+## In Conclusion
+
+The use of `mod.rs` files is crucial for declaring and managing submodules as well as ensuring a modular and maintainable codebase. 
+
+To reference modules in Rust, you use the **mod** keyword to declare the module and then use the **::** operator to access the module's functions or items, such as **module_name::function_name()**.
+
+You can also reference a module in another Rust file using the **crate::** syntax. For example, if you have a module named **my_module** with a function **my_function()**, you can reference it in another file like this: **crate::my_module::my_function()**. This tells the Rust compiler to look for **my_function** within the **my_module module** in the current crate.
+
+Hopefully, this makes as much sense in your head as it does in mine :)

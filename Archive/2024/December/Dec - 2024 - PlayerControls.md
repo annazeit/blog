@@ -244,4 +244,4 @@ fn draw_player(
     }    
 }
  ```
-Congratulations! You have made a fully conrtolable player.
+Congratulations! You have made a fully controllable player.

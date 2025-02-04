@@ -18,7 +18,7 @@ I'm just starting to learn Rust and Bevy, and I'm excited to share my journey wi
 
 - [Learning How to Draw a Circle](./Archive/2024/December/Dec%20-%202024%20-%20TryingToDrawSomething.md)
 
-- [Creating a Player and Adding Simple Controls](./Archive/2024/December/Dec%20-%202024%20-%20PlayerControls)
+- [Creating a Player and Adding Simple Controls](./Archive/2024/December/Dec%20-%202024%20-%20PlayerControls.md)
 
 ### Rust's Module System
 

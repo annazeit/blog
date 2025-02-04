@@ -11,7 +11,6 @@ I'm just starting to learn Rust and Bevy, and I'm excited to share my journey wi
 ### Setup 
 
 - [Setting up with Rust and Bevy](./Archive/2024/December/Dec%20-%202024%20-%20GettingStarted.md)
-
 ### Starting Game Development on Rust
 
 - [Setting Up the Camera](./Archive/2024/December/Dec%20-%202024%20-%20SettingUpTheCamera.md)

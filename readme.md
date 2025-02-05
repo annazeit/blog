@@ -10,15 +10,15 @@ I'm just starting to learn Rust and Bevy, and I'm excited to share my journey wi
 
 ### Setup 
 
-- [Setting up with Rust and Bevy](./Archive/2024/December/Dec%20-%202024%20-%20GettingStarted.md)
+- [Setting up with Rust and Bevy](./Archive/2024/12/2024.12.GettingStarted.md)
 ### Starting Game Development on Rust
 
-- [Setting Up the Camera](./Archive/2024/December/Dec%20-%202024%20-%20SettingUpTheCamera.md)
+- [Setting Up the Camera](./Archive/2024/12/2024.12.SettingUpTheCamera.md)
 
-- [Learning How to Draw a Circle](./Archive/2024/December/Dec%20-%202024%20-%20TryingToDrawSomething.md)
+- [Learning How to Draw a Circle](./Archive/2024/12/2024.12.TryingToDrawSomething.md)
 
-- [Creating a Player and Adding Simple Controls](./Archive/2024/December/Dec%20-%202024%20-%20PlayerControls.md)
+- [Creating a Player and Adding Simple Controls](./Archive/2024/12/2024.12.PlayerControls.md)
 
 ### Rust's Module System
 
-- [Crates and Modules](./Archive/2025/February/Feb%20-%202025%20-%20RustCratesAndModules.md)
+- [Crates and Modules](./Archive/2025/February/2025.02.RustCratesAndModules.md)

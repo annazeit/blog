@@ -19,6 +19,8 @@ I'm just starting to learn [Rust programming language](https://doc.rust-lang.org
 
 - [Creating a Player and Adding Simple Controls](./Archive/2024/12/2024.12.PlayerControls.md)
 
+- [Detecting Collisions](./Archive/2025/February/2025.02.Collisions.md)
+
 ### Rust's Module System
 
 - [Crates and Modules](./Archive/2025/February/2025.02.RustCratesAndModules.md)

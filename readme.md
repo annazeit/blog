@@ -6,6 +6,8 @@ Hello! I'm Anna, and this is my corner of the internet where I share insights on
 ## About This Blog
 I'm just starting to learn [Rust programming language](https://doc.rust-lang.org/) and [Bevy game engine](https://bevyengine.org/), and I'm excited to share my journey with you. Here, I'll document my experiences as I dive into coding with Rust and explore game development using Bevy. I'm exploring the Rust's crate ecosystem as well as looking into Bevy's Entity Component System (ECS).Whether you're also learning or just curious about these technologies, I hope you'll find my posts interesting and maybe even pick up something new along the way! 
 
+My page is filled with articles and simple examples that are easy to follow. I try my best to explain my code to the best of my understanding.
+
 ---
 
 ## My Articles:
@@ -25,6 +27,8 @@ I'm just starting to learn [Rust programming language](https://doc.rust-lang.org
 - [Collisions](./Archive/2025/02/2025.02.Collisions.md)
 
 - [3D Camera and Objects](./Archive/2025/05/2025.05.3DCameraAndObjects.md)
+
+- [Split-screen](./Archive/2025/06/2025.06.SplitScreen.md)
 
 ### Rust's Module System
 

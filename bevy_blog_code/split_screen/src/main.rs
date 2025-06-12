@@ -47,23 +47,15 @@ fn main() {
         .add_systems(Update, grid)
         .add_systems(Update, fly_camera)
         .add_systems(Update, orbit_electron_system)
-        .add_systems(Update, setup_viewports)
+        .add_systems(Update, setup_viewpoints)
         .run();
 }
 
 fn setup(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
-    mut materials: ResMut<Assets<StandardMaterial>>
+    mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
-    // game view camera
-    commands.spawn((
-        Name::new("GameViewCamera"),
-        Camera3d::default(),
-        Transform::from_xyz(5.0, 5.0, 5.0).looking_at(Vec3::ZERO, Vec3::Y),
-        FullScreen { enabled: false },
-    ));
-    
     // UI node for camera background
     commands
         .spawn(Node {
@@ -75,6 +67,14 @@ fn setup(
             ..default()
         })
         .insert(BackgroundColor(BLACK.into()));
+
+    // game view camera
+    commands.spawn((
+        Name::new("GameViewCamera"),
+        Camera3d::default(),
+        Transform::from_xyz(5.0, 5.0, 5.0).looking_at(Vec3::ZERO, Vec3::Y),
+        FullScreen { enabled: false },
+    ));
 
     // main camera
     commands.spawn((
@@ -210,35 +210,33 @@ fn electron_trace_gizmo_system(
 fn grid(
     mut gizmos: Gizmos,
     keyboard_input: Res<ButtonInput<KeyCode>>,
-    mut grid_query: Query<&mut Grid>,
+    mut grid: Single<&mut Grid>,
 ) {
-    for mut grid in &mut grid_query {
         // toggle grid visibility
-        if keyboard_input.just_pressed(KeyCode::Space) {
-            grid.enabled = !grid.enabled;
-        }
-
-        if grid.enabled {
-            // grid lines
-            for i in -grid.size..=grid.size {
-                let pos = i as f32 * grid.cell_size;
-                gizmos.line(
-                    Vec3::new(pos, 0.0, -grid.size as f32),
-                    Vec3::new(pos, 0.0, grid.size as f32),
-                    GREY,
-                );
-                gizmos.line(
-                    Vec3::new(-grid.size as f32, 0.0, pos),
-                    Vec3::new(grid.size as f32, 0.0, pos),
-                    GREY,
-                );
-            }
-            // axes
-            gizmos.line(Vec3::new(-100.0, 0.01, 0.0), Vec3::new(100.0, 0.0, 0.0), RED);
-            gizmos.line(Vec3::new(0.0, -100.0, 0.0), Vec3::new(0.0, 100.0, 0.0), GREEN);
-            gizmos.line(Vec3::new(0.0, 0.01, -100.0), Vec3::new(0.0, 0.0, 100.0), BLUE);
-        }
+    if keyboard_input.just_pressed(KeyCode::Space) {
+        grid.enabled = !grid.enabled;
     }
+
+    if grid.enabled {
+        // grid lines
+        for i in -grid.size..=grid.size {
+            let pos = i as f32 * grid.cell_size;
+            gizmos.line(
+                Vec3::new(pos, 0.0, -grid.size as f32),
+                Vec3::new(pos, 0.0, grid.size as f32),
+                GREY,
+            );
+            gizmos.line(
+                Vec3::new(-grid.size as f32, 0.0, pos),
+                Vec3::new(grid.size as f32, 0.0, pos),
+                GREY,
+            );
+        }
+        // axes
+        gizmos.line(Vec3::new(-100.0, 0.01, 0.0), Vec3::new(100.0, 0.0, 0.0), RED);
+        gizmos.line(Vec3::new(0.0, -100.0, 0.0), Vec3::new(0.0, 100.0, 0.0), GREEN);
+        gizmos.line(Vec3::new(0.0, 0.01, -100.0), Vec3::new(0.0, 0.0, 100.0), BLUE);
+        }
 }
 
 // WASD + QE movement and arrow keys for camera rotation
@@ -311,8 +309,8 @@ fn full_screen_toggle(
     }
 }
 
-// Set up camera viewports and UI node size/position
-fn setup_viewports(
+// Set up camera viewpoints and UI node size/position
+fn setup_viewpoints(
     mut cameras: Query<(&Name, &mut Camera)>,
     mut ui_node: Single<&mut Node>,
     windows: Query<&Window, With<PrimaryWindow>>,

@@ -1,0 +1,9 @@
+[package]
+name = "test_example"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bevy = { version = "0.15", features = ["bevy_audio"] }
+rand = "0.8.5"
+almost = "0.2.0"

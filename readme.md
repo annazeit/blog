@@ -30,6 +30,8 @@ My page is filled with articles and simple examples that are easy to follow. I t
 
 - [Split-screen](./Archive/2025/06/2025.06.SplitScreen.md)
 
+- [Audio](./Archive/2025/04/2025.04.Audio.md)
+
 ### Rust's Module System
 
 - [Crates and Modules](./Archive/2025/02/2025.02.RustCratesAndModules.md)

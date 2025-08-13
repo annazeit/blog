@@ -46,7 +46,7 @@ fn main() {
         .add_systems(Startup, setup)
         .add_systems(Update, grid)
         .add_systems(Update, fly_camera)
-        .add_systems(Update, orbit_electron_system)
+        //.add_systems(Update, orbit_electron_system)
         .add_systems(Update, setup_viewpoints)
         .run();
 }
@@ -133,9 +133,6 @@ fn setup(
         points: Vec::new(),
         max_points: 3770, // enough for a full "flower" at 60 FPS
     });
-
-
-
 }
 
 // The electron moves in a tilted, oscillating circular path around the core.

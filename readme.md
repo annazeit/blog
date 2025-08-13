@@ -32,6 +32,8 @@ My page is filled with articles and simple examples that are easy to follow. I t
 
 - [Audio](./Archive/2025/04/2025.04.Audio.md)
 
+- [Importing Blender Models](./Archive/2025/07/2025.07.ImportingBlenderModel.md)
+
 ### Rust's Module System
 
 - [Crates and Modules](./Archive/2025/02/2025.02.RustCratesAndModules.md)

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donut Animation</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #1e1e1e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    canvas {
+      width: 960px;
+      height: 540px;
+      border: 2px solid #ccc;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <script type="module">
+    import init from './wiggles.js';
+    init();
+  </script>
+</body>
+</html>

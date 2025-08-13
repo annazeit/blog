@@ -45,3 +45,7 @@ My page is filled with articles and simple examples that are easy to follow. I t
 ## Bevy Bevy Bevy
 
 [bevy video](./Bevy%20Bevy%20Bevy.mp4)
+
+## Try Demo
+
+<iframe src="blog\bevy_blog_code\wiggles\out\index.html" width="960" height="540" frameborder="0" style="border:2px solid #ccc; box-shadow:0 0 20px rgba(0,0,0,0.5); background:black;"></iframe>

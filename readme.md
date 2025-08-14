@@ -48,4 +48,4 @@ My page is filled with articles and simple examples that are easy to follow. I t
 
 ## Try Demo
 
-<iframe src="https://github.com/annazeit/blog/blob/main/bevy_blog_code/wiggles/out/index.html" width="960" height="540" frameborder="0" style="border:2px solid #ccc; box-shadow:0 0 20px rgba(0,0,0,0.5); background:black;"></iframe>
+<iframe src="bevy_blog_code\wiggles\out\index.html" width="960" height="540" frameborder="0" style="border:2px solid #ccc; box-shadow:0 0 20px rgba(0,0,0,0.5); background:black;"></iframe>

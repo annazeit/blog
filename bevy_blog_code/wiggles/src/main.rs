@@ -4,10 +4,18 @@ use bevy::app::{App, Plugin, Startup, Update};
 use bevy::color::Color;
 use bevy::math::Vec2;
 use bevy::prelude::{Commands, Component, Gizmos, Mut, Query, Res, Time};
+use bevy::window::{WindowPlugin, Window};
+
 
 pub fn main() {
     App::new()
-        .add_plugins(DefaultPlugins)
+        .add_plugins(DefaultPlugins.set(WindowPlugin {
+        primary_window: Some(Window {
+            fit_canvas_to_parent: true,
+            ..default()
+        }),
+        ..default()
+    }))
         .add_systems(Startup, setup)
         .add_plugins(SpritePlugin)
         .run();

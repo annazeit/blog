@@ -48,4 +48,8 @@ My page is filled with articles and simple examples that are easy to follow. I t
 
 ## Try Demo
 
-<iframe src="bevy_blog_code\wiggles\out\index.html" width="960" height="540" frameborder="0" style="border:2px solid #ccc; box-shadow:0 0 20px rgba(0,0,0,0.5); background:black;"></iframe>
+<div style="position: relative; width: 100%; padding-top: 56.25%;">
+  <iframe src="bevy_blog_code\wiggles\out\index.html"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;">
+  </iframe>
+</div>

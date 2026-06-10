@@ -34,6 +34,8 @@ My page is filled with articles and simple examples that are easy to follow. I t
 
 - [Importing Blender Models](./Archive/2025/07/2025.07.ImportingBlenderModel.md)
 
+- [Connecting Bevy and WASM](./Archive/2025/08/2025.08.BevyInWASM.md)
+
 ### Rust's Module System
 
 - [Crates and Modules](./Archive/2025/02/2025.02.RustCratesAndModules.md)
